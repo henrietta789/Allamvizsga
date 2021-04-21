@@ -46,4 +46,6 @@ public class FilterListFragment extends Fragment {
         listFilter.add(new Filter("Filter4",R.drawable.dog));
         listFilter.add(new Filter("Filter5",R.drawable.dog));
     }
+
+
 }

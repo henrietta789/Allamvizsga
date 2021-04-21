@@ -17,9 +17,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     Context mContext;
     List<Filter> mData;
 
-    public RecyclerViewAdapter(Context context, List<Filter> listFilter) {
+    public RecyclerViewAdapter(Context mContext, List<Filter> mData){
+        this.mContext=mContext;
+        this.mData=mData;
     }
-
 
     @NonNull
     @Override
@@ -47,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView filtername;
         private ImageView filterimage;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(View itemView) {
             super(itemView);
 
             filtername = (TextView) itemView.findViewById(R.id.filtername);
