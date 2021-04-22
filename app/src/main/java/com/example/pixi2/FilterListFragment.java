@@ -30,7 +30,7 @@ public class FilterListFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_filter_list,container, false);
         myRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         RecyclerViewAdapter recyclerAdapter = new RecyclerViewAdapter(getContext(),listFilter);
-        myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false)); //filtermenu horizontal gordulo
         myRecyclerView.setAdapter(recyclerAdapter);
         return v;
     }
