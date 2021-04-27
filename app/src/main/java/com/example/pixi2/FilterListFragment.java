@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,20 @@ public class FilterListFragment extends Fragment {
         RecyclerViewAdapter recyclerAdapter = new RecyclerViewAdapter(getContext(),listFilter);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false)); //filtermenu horizontal gordulo
         myRecyclerView.setAdapter(recyclerAdapter);
+
+        myRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), myRecyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, final int position) {
+                Toast.makeText(getActivity(), "Single Click on position        :"+position,
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         return v;
     }
 
@@ -45,7 +61,13 @@ public class FilterListFragment extends Fragment {
         listFilter.add(new Filter("Filter3",R.drawable.dog));
         listFilter.add(new Filter("Filter4",R.drawable.dog));
         listFilter.add(new Filter("Filter5",R.drawable.dog));
-    }
 
+
+
+    }
+    public static interface ClickListener{
+        public void onClick(View view,int position);
+        public void onLongClick(View view,int position);
+    }
 
 }
