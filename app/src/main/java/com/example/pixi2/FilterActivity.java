@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,11 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.IOException;
+
 
 public class FilterActivity extends AppCompatActivity {
     private static int SELECT_PICTURE = 200;
     Button add, save;
     static ImageView img;
+    static Bitmap  bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,18 @@ public class FilterActivity extends AppCompatActivity {
                     //KÉP ---> IMAGEVIEW
                     img.setImageURI(selectedImageUri);
                 }
+                ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), selectedImageUri);
+                try {
+                    bitmap = ImageDecoder.decodeBitmap(source);
+                    //img.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         }
+    }
+    public static Bitmap getImageBitmap(){
+        return bitmap;
     }
 }

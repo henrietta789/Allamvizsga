@@ -48,10 +48,11 @@ public class FilterListFragment extends Fragment {
                 Toast.makeText(getActivity(), "Single Click on position :"+position,
                         Toast.LENGTH_SHORT).show();
                 if(position == 0){
-                    //ImageFilters.filter0();
+                    Bitmap bp= ImageFilters.filter0();
+                    FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 1){
-                    //ImageFilters.filter1();
+
                 }
                 if(position == 2){
                     //ImageFilters.filter2();
