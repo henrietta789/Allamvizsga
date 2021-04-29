@@ -8,17 +8,19 @@ import android.util.Base64;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 public class ImageFilters {
 
     public static Bitmap filter0(){
-        Bitmap bitmap = FilterActivity.getImageBitmap();
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
-        for(int i=0; i<height;++i){
-            for(int j=0; j<width-1;++j){
+        for(int i=0; i<width;++i){
+            for(int j=0; j<height-1;++j){
                 int pixelColor = bitmap.getPixel(i,j);
                 int pixelColora = bitmap.getPixel(i,j+1);
                 if(pixelColor== Color.BLACK && pixelColora != Color.BLACK){
@@ -28,5 +30,31 @@ public class ImageFilters {
         }
         return bitmap;
         
+    }
+    public static Bitmap filter1(){
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        ByteBuffer buffer = ByteBuffer.allocate(bitmap.getRowBytes()*bitmap.getHeight());
+        bitmap.copyPixelsToBuffer(buffer);
+
+        return bitmap;
+
+    }
+    public static Bitmap filter2(){
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        for(int i=0; i<width;++i){
+            for(int j=0; j<height-1;++j){
+                if(bitmap.getPixel(i,j)<bitmap.getPixel(i,j+1)){
+                    bitmap.setPixel(i, j, Color.rgb(255, 0, 0));
+                }
+            }
+        }
+        return bitmap;
+
     }
 }
