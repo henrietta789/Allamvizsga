@@ -1,31 +1,48 @@
 package com.example.pixi2;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.Image;
-import android.util.Base64;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.IntBuffer;
+import java.util.Random;
 
 public class ImageFilters {
+
+   /*public static int[] Szinek(Bitmap bitmap){
+       int s=bitmap.getWidth()*bitmap.getHeight();
+       int [] szin= new int[s];
+        int i=0;
+       for(int x=0;x<bitmap.getWidth();++x){
+           for(int y=0;y<bitmap.getHeight();++y) {
+               if (bitmap.getPixel(x, y) == Color.BLACK) {
+                   szin[i] = 0;
+               }
+               if (bitmap.getPixel(x, y) == Color.RED) {
+                   szin[i] = 1;
+               }
+               if (bitmap.getPixel(x, y) == Color.GREEN) {
+                   szin[i] = 2;
+               }
+               if (bitmap.getPixel(x, y) == Color.BLUE) {
+                   szin[i] = 3;
+               }++i;
+           }
+       }
+    return szin;
+   }*/
 
     public static Bitmap filter0(){
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
         Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
+        int r = new Random().nextInt(height);
         for(int i=0; i<width;++i){
             for(int j=0; j<height-1;++j){
-                int pixelColor = bitmap.getPixel(i,j);
-                int pixelColora = bitmap.getPixel(i,j+1);
-                if(pixelColor== Color.BLACK && pixelColora != Color.BLACK){
-                    bitmap.setPixel(i, j, Color.rgb(255, 0, 0));
+                if(bitmap.getPixel(i,j)!=bitmap.getPixel(i,j+1)){
+                    bitmap.setPixel(i, j, bitmap.getPixel(i,j+1));
                 }
+                r = new Random().nextInt(height);
             }
         }
         return bitmap;
