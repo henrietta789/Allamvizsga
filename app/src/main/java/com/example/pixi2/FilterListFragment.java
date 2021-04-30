@@ -82,11 +82,11 @@ public class FilterListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         listFilter = new ArrayList<>();
-        listFilter.add(new Filter("Filter1",R.drawable.dog));
-        listFilter.add(new Filter("Filter2",R.drawable.dog));
-        listFilter.add(new Filter("Filter3",R.drawable.dog));
-        listFilter.add(new Filter("Filter4",R.drawable.dog));
-        listFilter.add(new Filter("Filter5",R.drawable.dog));
+        listFilter.add(new Filter("Filter1",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter2",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter3",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter4",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter5",R.drawable.pixie_icon));
 
 
     }

@@ -64,28 +64,7 @@ public class ImageFilters {
         return bitmap_tmp;
 
     }
-    /*public static  byte[][] make2D(byte[] b,int size){
-        byte[][] b2= new byte[size/size][size/2];
-        int k=0;
-        for(int i=0;i<size/2;++i){
-            for(int j=0;j<size/2;++j){
-                b2[i][j]=b[k];
-                ++k;
-            }
-        }
-        return b2;
-    }
-    public static  byte[] make1D(byte[][] b,int size){
-        byte[] b1= new byte[size*size];
-        int k=0;
-        for(int i=0;i<size;++i){
-            for(int j=0;j<size;++j){
-                b1[k]=b[i][j];
-                ++k;
-            }
-        }
-        return b1;
-    }*/
+
 
     public static Bitmap filter2(){ // pirosra festi (fekete pixeleket leginkább)
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
