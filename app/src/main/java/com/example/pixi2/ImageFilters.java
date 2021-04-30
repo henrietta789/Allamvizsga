@@ -39,22 +39,29 @@ public class ImageFilters {
     }
     public static Bitmap filter1(){
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap myBitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
-        int [] allpixels = new int [myBitmap.getHeight() * myBitmap.getWidth()];
-
-        myBitmap.getPixels(allpixels, 0, myBitmap.getWidth(), 0, 0, myBitmap.getWidth(), myBitmap.getHeight());
-
-        for(int i = 0; i < allpixels.length/4; i++) {
-            for (int j = 0; j < allpixels.length/4; j++) {
-                if (allpixels[i] >= allpixels[j]) {
-                    int temp = allpixels[i];
-                    allpixels[i] = allpixels[j];
-                    allpixels[j] = temp;
-                }
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        int size = bitmap.getRowBytes() * bitmap.getHeight();
+        ByteBuffer byteBuffer = ByteBuffer.allocate(size);
+        bitmap.copyPixelsToBuffer(byteBuffer);
+        byte[] byteArray = byteBuffer.array();
+        int k = 0;
+        for(int i=0;i<byteArray.length;++i){
+            if(byteArray[i]!=Color.BLUE){
+                byte temp= byteArray[i];
+                byteArray[i]=byteArray[k];
+                byteArray[k]=temp;
+                if(i>k) k=i-k;
+                if(i<k) k=k-1;
             }
         }
-        myBitmap.setPixels(allpixels,0,myBitmap.getWidth(),0, 0, myBitmap.getWidth(),myBitmap.getHeight());
-        return myBitmap;
+
+        Bitmap.Config configBmp = Bitmap.Config.valueOf(bitmap.getConfig().name());
+        Bitmap bitmap_tmp = Bitmap.createBitmap(width, height, configBmp);
+        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
+        bitmap_tmp.copyPixelsFromBuffer(buffer);
+        return bitmap_tmp;
 
     }
     /*public static  byte[][] make2D(byte[] b,int size){
