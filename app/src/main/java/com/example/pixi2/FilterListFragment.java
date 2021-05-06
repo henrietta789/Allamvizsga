@@ -61,7 +61,8 @@ public class FilterListFragment extends Fragment {
                     FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 3){
-                    //ImageFilters.filter3();
+                    bp= ImageFilters.filter3();
+                    FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 4){
                     //ImageFilters.filter4();

@@ -2,6 +2,8 @@ package com.example.pixi2;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.media.Image;
 
 import androidx.palette.graphics.Palette;
 
@@ -79,6 +81,36 @@ public class ImageFilters {
             }
         }
         return bitmap;
-
     }
+
+    public static Bitmap filter3(){ //fekete
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        int e,m,i=0,j=0;
+        while(i< width && j<height){
+            e=blackpixel(bitmap,i,j);
+            m=blackpixel(bitmap,i,e);
+            if(e!=-1 && m != -1){
+                for(int y=e;y<m;++y){
+                    if(bitmap.getPixel(i,y)!=Color.BLUE){
+                        bitmap.setPixel(i,y,Color.WHITE);
+                    }
+                }
+            }
+        }
+        return bitmap;
+    }
+
+    public static int blackpixel(Bitmap bitmap, int w, int h){
+        int i=0;
+        for(i=0; i<w;++i){
+            if(bitmap.getColor(i,h)==Color.valueOf(0,0,0,255)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
