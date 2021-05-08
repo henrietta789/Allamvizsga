@@ -77,11 +77,11 @@ public class FilterListFragment extends Fragment {
                     FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 7){
-                    bp= ImageFilters.filter2();
+                    bp= ImageFilters.filter7();
                     FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 8){
-                    bp= ImageFilters.filter3();
+                    bp= ImageFilters.filter8();
                     FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 9){
