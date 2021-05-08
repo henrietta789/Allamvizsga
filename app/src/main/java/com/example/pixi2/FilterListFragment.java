@@ -65,7 +65,28 @@ public class FilterListFragment extends Fragment {
                     FilterActivity.img.setImageBitmap(bp);
                 }
                 if(position == 4){
-                    //ImageFilters.filter4();
+                    bp= ImageFilters.filter4();
+                    FilterActivity.img.setImageBitmap(bp);
+                }
+                if(position == 5){
+                    bp= ImageFilters.filter5();
+                    FilterActivity.img.setImageBitmap(bp);
+                }
+                if(position == 6){
+                    bp= ImageFilters.filter6();
+                    FilterActivity.img.setImageBitmap(bp);
+                }
+                if(position == 7){
+                    bp= ImageFilters.filter2();
+                    FilterActivity.img.setImageBitmap(bp);
+                }
+                if(position == 8){
+                    bp= ImageFilters.filter3();
+                    FilterActivity.img.setImageBitmap(bp);
+                }
+                if(position == 9){
+                    bp= ImageFilters.filter4();
+                    FilterActivity.img.setImageBitmap(bp);
                 }
             }
 
@@ -83,11 +104,17 @@ public class FilterListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         listFilter = new ArrayList<>();
+
+        listFilter.add(new Filter("Filter0",R.drawable.pixie_icon));
         listFilter.add(new Filter("Filter1",R.drawable.pixie_icon));
         listFilter.add(new Filter("Filter2",R.drawable.pixie_icon));
         listFilter.add(new Filter("Filter3",R.drawable.pixie_icon));
         listFilter.add(new Filter("Filter4",R.drawable.pixie_icon));
         listFilter.add(new Filter("Filter5",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter6",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter7",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter8",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Filter9",R.drawable.pixie_icon));
 
 
     }

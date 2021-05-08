@@ -113,4 +113,80 @@ public class ImageFilters {
         return -1;
     }
 
+    public static Bitmap filter4(){ // azt RGB-t BRG-re konvertálja
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        for(int i=0; i<width;++i){
+            for(int j=0; j<height;++j){
+                int colour = bitmap.getPixel(i, j);
+                int red = Color.red(colour);
+                int blue = Color.blue(colour);
+                int green = Color.green(colour);
+                int alpha = Color.alpha(colour);
+                bitmap.setPixel(i, j, Color.argb(blue, red, green, alpha));
+            }
+        }
+        return bitmap;
+    }
+    public static Bitmap filter5(){ // pixelek szortolása az R- érték alapján
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        int n=0;
+        while (n<100){
+            for(int i=0; i<width;++i){
+                for(int j=0; j<height-1;++j){
+                    int colour = bitmap.getPixel(i, j);
+                    int reda = Color.red(colour);
+                    int bluea = Color.blue(colour);
+                    int greena = Color.green(colour);
+                    int alphaa = Color.alpha(colour);
+                    colour = bitmap.getPixel(i, j+1);
+                    int redb = Color.red(colour);
+                    int blueb = Color.blue(colour);
+                    int greenb = Color.green(colour);
+                    int alphab = Color.alpha(colour);
+                    if(reda<redb){
+                        bitmap.setPixel(i,j,Color.argb(alphab,redb, greenb,blueb));
+                        bitmap.setPixel(i,j+1,Color.argb(alphaa,reda, greena,bluea));
+                    }
+                }
+            }
+            ++n;
+        }
+        return bitmap;
+    }
+    public static Bitmap filter6(){ // pixelek szortolása az R- érték alapján vertikálisan
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        int n=0;
+        while (n<150){
+            for(int i=0; i<width-1;++i){
+                for(int j=0; j<height;++j){
+                    int colour = bitmap.getPixel(i, j);
+                    int reda = Color.red(colour);
+                    int bluea = Color.blue(colour);
+                    int greena = Color.green(colour);
+                    int alphaa = Color.alpha(colour);
+                    colour = bitmap.getPixel(i+1, j);
+                    int redb = Color.red(colour);
+                    int blueb = Color.blue(colour);
+                    int greenb = Color.green(colour);
+                    int alphab = Color.alpha(colour);
+                    if(reda<redb){
+                        bitmap.setPixel(i,j,Color.argb(alphab,redb, greenb,blueb));
+                        bitmap.setPixel(i+1,j,Color.argb(alphaa,reda, greena,bluea));
+                    }
+                }
+            }
+            ++n;
+        }
+        return bitmap;
+    }
+
 }
