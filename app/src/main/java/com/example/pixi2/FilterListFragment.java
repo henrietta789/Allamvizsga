@@ -29,7 +29,7 @@ public class FilterListFragment extends Fragment {
     View v;
     private RecyclerView myRecyclerView;
     private List<Filter> listFilter;
-
+    static Bitmap bp;
     public FilterListFragment() {
 
     }
@@ -47,7 +47,7 @@ public class FilterListFragment extends Fragment {
             public void onClick(View view, final int position) {
                 Toast.makeText(getActivity(), "Single Click on position :"+position,
                         Toast.LENGTH_SHORT).show();
-                Bitmap bp;
+
                 if(position == 0){
                     bp= ImageFilters.filter0();
                     FilterActivity.img.setImageBitmap(bp);
@@ -122,6 +122,8 @@ public class FilterListFragment extends Fragment {
         public void onClick(View view,int position);
         public void onLongClick(View view,int position);
     }
-
+    public static Bitmap getImageBitmap(){
+        return bp;
+    }
 
 }

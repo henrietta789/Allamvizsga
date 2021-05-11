@@ -42,6 +42,13 @@ public class FilterActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
             }
         });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap b  = FilterListFragment.getImageBitmap();
+                MediaStore.Images.Media.insertImage(getContentResolver(), b, "title" , "description");
+            }
+        });
 
     }
     @Override
