@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".KameraActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/kamera_imageView"
+        android:layout_width="365dp"
+        android:layout_height="473dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pixie_icon" />
+
+    <Button
+        android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="367dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="345dp"
-        android:text="TextView"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="105dp"
+        android:text="EDIT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/kamera_imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

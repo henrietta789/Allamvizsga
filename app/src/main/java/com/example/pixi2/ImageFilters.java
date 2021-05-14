@@ -282,4 +282,45 @@ public class ImageFilters {
         }
         return bitmap;
     }
+    public static Bitmap filter9(){ // fényesség alapján rendezi a sorokat középen
+        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        int height = bitmap.getHeight();
+        int width = bitmap.getWidth();
+        int n = 0, R=0,B=0,G=0;
+        int[] pixels = new int[width * height];
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < pixels.length; i += 1) {
+            int color = pixels[i];
+            R += Color.red(color);
+            G += Color.green(color);
+            B += Color.blue(color);
+            n++;
+        }
+        int BR = (R + B + G) / (n * 3);
+        int  h=0;
+        while (h<300){
+            for(int i=width/3; i<width/2;++i){
+                for(int j=0; j<height-1;++j){
+                    int colour = bitmap.getPixel(i, j);
+                    int reda = Color.red(colour);
+                    int bluea = Color.blue(colour);
+                    int greena = Color.green(colour);
+                    int alphaa = Color.alpha(colour);
+                    colour = bitmap.getPixel(i, j+1);
+                    int redb = Color.red(colour);
+                    int blueb = Color.blue(colour);
+                    int greenb = Color.green(colour);
+                    int alphab = Color.alpha(colour);
+                    int br=(reda+greena+bluea)/3;
+                    if(BR<(br+50)){
+                        bitmap.setPixel(i,j,Color.argb(alphab,redb, greenb,blueb));
+                        bitmap.setPixel(i,j+1,Color.argb(alphaa,reda, greena,bluea));
+                    }
+                }
+            }
+            ++h;
+        }
+        return bitmap;
+    }
 }
