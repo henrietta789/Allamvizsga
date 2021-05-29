@@ -83,7 +83,7 @@ public class ImageFilters {
         return bitmap;
     }
 
-    public static Bitmap filter3(){ //fekete
+    public static Bitmap filter3(){ //fekete nem megy
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
         Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
