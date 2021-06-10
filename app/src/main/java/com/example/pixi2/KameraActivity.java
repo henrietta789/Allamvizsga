@@ -23,6 +23,7 @@ public class KameraActivity extends AppCompatActivity {
     private static int SELECT_PICTURE = 200;
     ImageView imageView;
     Button edit;
+    Bitmap photo;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -47,6 +48,7 @@ public class KameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent mainIntent = new Intent(KameraActivity.this, FilterActivity.class);
+                mainIntent.putExtra("image",photo);
                 startActivity(mainIntent);
             }
         });
@@ -57,7 +59,7 @@ public class KameraActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE  && resultCode ==RESULT_OK )
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            photo = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
         }
     }

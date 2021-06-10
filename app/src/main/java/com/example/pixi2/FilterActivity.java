@@ -32,6 +32,10 @@ public class FilterActivity extends AppCompatActivity {
         save= findViewById(R.id.button_save);
         img = findViewById(R.id.kep_imageView);
 
+        Intent intent = getIntent();
+        bitmap = (Bitmap) intent.getParcelableExtra("image");
+        img.setImageBitmap(bitmap);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
