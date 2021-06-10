@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung"
+    android:scaleType = "centerCrop"
     tools:context=".KameraActivity">
 
     <ImageView
         android:id="@+id/kamera_imageView"
-        android:layout_width="365dp"
-        android:layout_height="473dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="347dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="49dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

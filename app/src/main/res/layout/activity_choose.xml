@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung"
+    android:scaleType = "centerCrop"
     tools:context=".ChooseActivity">
 
     <ImageButton
         android:id="@+id/kamera_imageButton"
+        android:background="@drawable/camera_icon"
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:layout_marginStart="152dp"
@@ -16,11 +19,11 @@
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
         android:id="@+id/gallery_imageButton"
+        android:background="@drawable/files_icon"
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:layout_marginStart="159dp"
@@ -32,8 +35,7 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
