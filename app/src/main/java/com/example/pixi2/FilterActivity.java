@@ -72,7 +72,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
 
             }
-        }
+            }
     }
     public static Bitmap getImageBitmap(){
         return bitmap;
