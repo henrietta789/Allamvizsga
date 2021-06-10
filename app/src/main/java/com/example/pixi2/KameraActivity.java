@@ -20,7 +20,7 @@ import java.io.IOException;
 public class KameraActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static int CAMERA_REQUEST = 200;
+    private static int SELECT_PICTURE = 200;
     ImageView imageView;
     Button edit;
 
@@ -55,12 +55,8 @@ public class KameraActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK)
+        if (requestCode == REQUEST_IMAGE_CAPTURE  && resultCode ==RESULT_OK )
         {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
-        }
-        else{
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(photo);
         }
