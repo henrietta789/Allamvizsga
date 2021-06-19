@@ -83,35 +83,37 @@ public class ImageFilters {
         return bitmap;
     }
 
-    public static Bitmap filter3(){ //fekete nem megy
+    public static Bitmap filter3(){ //szinmérték csere
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
         Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
-        int e,m,i=0,j=0;
-        while(i< width && j<height){
-            e=blackpixel(bitmap,i,j);
-            m=blackpixel(bitmap,i,e);
-            if(e!=-1 && m != -1){
-                for(int y=e;y<m;++y){
-                    if(bitmap.getPixel(i,y)!=Color.BLUE){
-                        bitmap.setPixel(i,y,Color.WHITE);
-                    }
+        int c=height-1;
+        for(int i=0; i<width;++i){
+            for(int j=0; j<height;++j){
+                int colour = bitmap.getPixel(i, j);
+                int red = Color.red(colour);
+                int blue = Color.blue(colour);
+                int green = Color.green(colour);
+                int alpha = Color.alpha(colour);
+                int colour2 = bitmap.getPixel(i, c);
+                int red2 = Color.red(colour2);
+                int blue2 = Color.blue(colour2);
+                int green2 = Color.green(colour2);
+                int alpha2 = Color.alpha(colour2);
+                if(blue<blue2){
+                    bitmap.setPixel(i, c, Color.argb(blue, red, green, alpha));
+                    bitmap.setPixel(i, j, Color.argb(blue2, red2, green2, alpha2));
+                }
+                if(c>0){
+                    c--;
                 }
             }
         }
         return bitmap;
     }
 
-    public static int blackpixel(Bitmap bitmap, int w, int h){
-        int i=0;
-        for(i=0; i<w;++i){
-            if(bitmap.getColor(i,h)==Color.valueOf(0,0,0,255)){
-                return i;
-            }
-        }
-        return -1;
-    }
+
 
     public static Bitmap filter4(){ // azt RGB-t BRG-re konvertálja
         Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
