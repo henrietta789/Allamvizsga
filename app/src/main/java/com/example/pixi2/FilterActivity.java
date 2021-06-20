@@ -42,7 +42,6 @@ public class FilterActivity extends AppCompatActivity {
                 Intent i = new Intent();
                 i.setType("image/*");
                 i.setAction(Intent.ACTION_GET_CONTENT);
-
                 startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
             }
         });
@@ -70,7 +69,6 @@ public class FilterActivity extends AppCompatActivity {
                 ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), selectedImageUri);
                 try {
                     bitmap = ImageDecoder.decodeBitmap(source);
-                    //img.setImageBitmap(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

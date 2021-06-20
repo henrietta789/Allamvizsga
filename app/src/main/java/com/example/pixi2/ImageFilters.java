@@ -83,9 +83,9 @@ public class ImageFilters {
         return bitmap;
     }
 
-    public static Bitmap filter3(){ //szinmérték csere
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+    public static Bitmap filter3(){
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int c=height-1;
@@ -101,7 +101,7 @@ public class ImageFilters {
                 int blue2 = Color.blue(colour2);
                 int green2 = Color.green(colour2);
                 int alpha2 = Color.alpha(colour2);
-                if(blue<blue2){
+                if(blue>blue2){
                     bitmap.setPixel(i, c, Color.argb(blue, red, green, alpha));
                     bitmap.setPixel(i, j, Color.argb(blue2, red2, green2, alpha2));
                 }
@@ -127,7 +127,7 @@ public class ImageFilters {
                 int blue = Color.blue(colour);
                 int green = Color.green(colour);
                 int alpha = Color.alpha(colour);
-                bitmap.setPixel(i, j, Color.argb(blue, red, green, alpha));
+                bitmap.setPixel(i, j, Color.argb(alpha, blue, red, green));
             }
         }
         return bitmap;

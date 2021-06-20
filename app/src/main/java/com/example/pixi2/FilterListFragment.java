@@ -105,16 +105,16 @@ public class FilterListFragment extends Fragment {
 
         listFilter = new ArrayList<>();
 
-        listFilter.add(new Filter("Filter0",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter1",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter2",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter3",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter4",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter5",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter6",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter7",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter8",R.drawable.pixie_icon));
-        listFilter.add(new Filter("Filter9",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Random",R.drawable.pixie_icon));
+        listFilter.add(new Filter("GreenParts",R.drawable.pixie_icon));
+        listFilter.add(new Filter("RedEgdes",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Rain",R.drawable.pixie_icon));
+        listFilter.add(new Filter("BRG",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Mist",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Grainy",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Contrast",R.drawable.pixie_icon));
+        listFilter.add(new Filter("Wavy",R.drawable.pixie_icon));
+        listFilter.add(new Filter("OnePart",R.drawable.pixie_icon));
 
 
     }
