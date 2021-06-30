@@ -15,8 +15,8 @@ public class ImageFilters {
 
 
     public static Bitmap filter0(){ //random generált helyekre rakja be a kép 0-dik pixelével megegyező színű pixeleket
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int size = bitmap.getRowBytes() * bitmap.getHeight();
@@ -40,8 +40,8 @@ public class ImageFilters {
         
     }
     public static Bitmap filter1(){
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int size = bitmap.getRowBytes() * bitmap.getHeight();
@@ -69,8 +69,8 @@ public class ImageFilters {
 
 
     public static Bitmap filter2(){ // pirosra festi (fekete pixeleket leginkább)
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         for(int i=0; i<width;++i){
@@ -83,7 +83,7 @@ public class ImageFilters {
         return bitmap;
     }
 
-    public static Bitmap filter3(){
+    public static Bitmap filter3(){ //rain
         Bitmap bitmap = FilterActivity.getImageBitmap();
         bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
@@ -116,8 +116,8 @@ public class ImageFilters {
 
 
     public static Bitmap filter4(){ // azt RGB-t BRG-re konvertálja
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         for(int i=0; i<width;++i){
@@ -133,8 +133,8 @@ public class ImageFilters {
         return bitmap;
     }
     public static Bitmap filter5(){ // pixelek szortolása az R- érték alapján mist
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n=0;
@@ -162,8 +162,10 @@ public class ImageFilters {
         return bitmap;
     }
     public static Bitmap filter6(){ // pixelek szortolása az R- érték alapján vertikálisan grainv
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        /*Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
+        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);*/
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n=0;
@@ -191,8 +193,8 @@ public class ImageFilters {
         return bitmap;
     }
     public static Bitmap filter7(){ // fényesség alapján rendezi a sorokat contarst
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n = 0, R=0,B=0,G=0;
@@ -244,8 +246,8 @@ public class ImageFilters {
         return bitmap;
     }
     public static Bitmap filter8(){ // fényesség alapján rendezi a sorokat horizontálisan wavy
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n = 0, R=0,B=0,G=0;
@@ -285,8 +287,8 @@ public class ImageFilters {
         return bitmap;
     }
     public static Bitmap filter9(){ // fényesség alapján rendezi a sorokat középen one part
-        Bitmap bitmaporiginal = FilterActivity.getImageBitmap();
-        Bitmap bitmap = bitmaporiginal.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bitmap = FilterActivity.getImageBitmap();
+        bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n = 0, R=0,B=0,G=0;
