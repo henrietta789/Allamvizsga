@@ -55,7 +55,7 @@ public class ImageFilters {
                 byteArray[i]=byteArray[k];
                 byteArray[k]=temp;
                 if(i>k) k=i-k;
-                if(i<k) k=k-1;
+               // if(i<k) k=k-1;
             }
         }
 
@@ -200,7 +200,7 @@ public class ImageFilters {
         int n = 0, R=0,B=0,G=0;
         int[] pixels = new int[width * height];
         bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-        for (int i = 0; i < pixels.length; i += 1) {
+        for (int i = 0; i < pixels.length; i++) {
             int color = pixels[i];
             R += Color.red(color);
             G += Color.green(color);
@@ -208,18 +208,6 @@ public class ImageFilters {
             n++;
         }
         int BR = (R + B + G) / (n * 3);
-        /*for(int i=0; i<width;++i){
-            for(int j=0; j<height;++j){
-                int colour = bitmap.getPixel(i, j);
-                int red = Color.red(colour);
-                int blue = Color.blue(colour);
-                int green = Color.green(colour);
-                int br=(red+green+blue)/3;
-                if(BR<(br+100)){
-                    bitmap.setPixel(i, j, Color.rgb(blue, red, green));
-                }
-            }
-        }*/
        int  h=0;
         while (h<height){
             for(int i=0; i<width;++i){
