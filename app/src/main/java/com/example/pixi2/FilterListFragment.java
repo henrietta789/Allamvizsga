@@ -45,7 +45,7 @@ public class FilterListFragment extends Fragment {
         myRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), myRecyclerView, new ClickListener() {
             @Override
             public void onClick(View view, final int position) {
-                Toast.makeText(getActivity(), "Single Click on position :"+position,
+                Toast.makeText(getActivity(), "Wait for filter:"+position,
                         Toast.LENGTH_SHORT).show();
 
                 if(position == 0){

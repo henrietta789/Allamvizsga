@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 public class ChooseActivity extends AppCompatActivity {
 
-    ImageButton kamera, gallery;
+    private ImageButton kamera, gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,8 +15,8 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
 
-    Context mContext;
-    List<Filter> mData;
+    private Context mContext;
+    private  List<Filter> mData;
 
     public RecyclerViewAdapter(Context mContext, List<Filter> mData){
         this.mContext=mContext;

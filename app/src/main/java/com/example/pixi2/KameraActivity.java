@@ -21,9 +21,9 @@ public class KameraActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private static int SELECT_PICTURE = 200;
-    ImageView imageView;
-    Button edit;
-    Bitmap photo;
+    private ImageView imageView;
+    private Button edit;
+    private Bitmap photo;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

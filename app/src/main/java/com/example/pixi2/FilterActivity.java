@@ -19,9 +19,9 @@ import java.io.IOException;
 
 public class FilterActivity extends AppCompatActivity {
     private static int SELECT_PICTURE = 200;
-    Button add, save;
-    static ImageView img;
-    static Bitmap  bitmap;
+    private Button add, save;
+     static ImageView img;
+     static Bitmap  bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
